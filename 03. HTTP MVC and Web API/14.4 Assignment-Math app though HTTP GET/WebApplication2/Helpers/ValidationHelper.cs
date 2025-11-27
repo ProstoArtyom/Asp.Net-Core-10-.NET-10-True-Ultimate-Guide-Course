@@ -6,8 +6,8 @@
 
         public static void SetStatusCode(this HttpResponse httpResponse, int statusCode)
         {
-            if (httpResponse.StatusCode != 400)
-                httpResponse.StatusCode = 400;
+            if (httpResponse.StatusCode != statusCode)
+                httpResponse.StatusCode = statusCode;
         }
 
         public static string GetErrorMessage(string propName) => $"Invalid input for '{propName}'.\n";
