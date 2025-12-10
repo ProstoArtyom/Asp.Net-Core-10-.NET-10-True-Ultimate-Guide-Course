@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .layout {
+        padding: 3.2rem 4.8rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Assignment</h1>
+    <p class="layout" id="first-page"></p>
+    <h1>Instructions</h1>
+    <p class="layout" id="instruction"></p>
+    <p class="download" id="instruction_download"></p>
+    <h1>Instructor example</h1>
+    <p class="layout" id="solution"></p>
+    <p id="soulution_download"></p>
+    <script>
+      classInfo = {"first_res":{"_class":"practice","id":1413438,"is_free":false,"description":"Create an Asp.Net Core Web Application that serves country details based on the request path.","estimated_duration":10,"num_submissions":628},"instruction_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_component","id":398504,"body":"<p><strong>Requirement:</strong> Create an Asp.Net Core Web Application that serves country details based on the request path.</p><p><br></p><p>Consider the following hard-coded list of countries:</p><p> 1, United States</p><p> 2, Canada</p><p> 3, United Kingdom</p><p> 4, India</p><p> 5, Japan</p><p>You can store these countries directly as a dictionary.</p><p><br></p><p><br></p><p><strong>Example #1:</strong></p><p>If you receive a HTTP GET request at path \"/countries\", it has to return the list of available countries.</p><p>Request Url: /countries</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><pre class=\"prettyprint linenums\"> 1, United States\n 2, Canada\n 3, United Kingdom\n 4, India\n 5, Japan</pre><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2022-10-26_19-50-59-77393b36c5a638a9f8d3c4d4508af9c0.png\"></figure><p><br></p><p><strong>Example #2:</strong></p><p>If you receive a HTTP GET request at path \"/countries/{countryID}\", it has to return the corresponding country name.</p><p>Request Url: /countries/1</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p> <code>United States</code></p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2022-10-26_19-50-59-110a382ed3fb1fd249df0dc96f145ac1.png\"></figure><p><br></p><p><strong>Example #3:</strong></p><p>If you receive a HTTP GET request at path \"/countries/{countryID}\", if the countryID doesn't exist (that is - outside the range of 1 to 5), it should return HTTP 404 response.</p><p>Request Url: /countries/6</p><p>Request Method: GET</p><p>Response Status Code: 404</p><p>Response body (output): </p><p> <code>[No Country]</code></p><p><br></p><p><strong>Example #3:</strong></p><p>If you receive a HTTP GET request at path \"/countries/{countryID}\", if the countryID is greater than 100, it should return HTTP 400 response.</p><p>Request Url: /countries/101</p><p>Request Method: GET</p><p>Response Status Code: 400</p><p>Response body (output): </p><p> <code>The CountryID should be between 1 and 100</code></p><p><br></p><p><br></p><p><strong>Route Constraints:</strong></p><p>The \"countryID\" parameter should be an int value.</p><p>The value of \"countryID\" parameter should be between 1 and 100.</p><p><br></p><p><strong>Instructions:</strong></p><ul><li><p>Create routes with UseEndPoints() middleware.</p></li><li><p>Use essential route parameters and route constraints.</p></li><li><p>Use parameter validation when necessary.</p></li><li><p>Use Map(), MapGet() or MapPost() methods to create endpoints, according to the requirement.</p></li><li><p>Return the response with appropriate response status code based on above examples.</p></li></ul><p><br></p>","asset":null,"display_type":"text"}]},"solution_res":{"count":0,"next":null,"previous":null,"results":[]},"instructor_example_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_question","id":502706,"body":"<p>Check your source code with Instructor's source code.</p>","answer":"<p>Full source code at <a href=\"https://github.com/Harsha-Global/AspNetCore-Harsha/tree/main/Assignment%20Solutions/03.%20Section%205%20-%20Routing%20-%20Countries%20app%20using%20Routing\" rel=\"noopener noreferrer\" target=\"_blank\">Github</a></p>"}]}};
+      let instruction_download = classInfo.instruction_res.results.filter(n => n.display_type === 'download');
+      let instruction_text = classInfo.instruction_res.results.filter(n => n.display_type === 'text');
+      let solution_download = classInfo.solution_res.results.filter(n => n.display_type === 'download');
+      console.log(instruction_download);
+      document.querySelector('#first-page').innerHTML = classInfo.first_res.description;
+      if (instruction_download.length > 0)
+        document.querySelector('#instruction_download').innerHTML = `${instruction_download.map(n => `<p>Assignment-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#instruction').innerHTML = instruction_text[0].body;
+      if (solution_download.length > 0)
+        document.querySelector('#soulution_download').innerHTML = `${solution_download.map(n => `<p>Soulution-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#solution').innerHTML = classInfo.instructor_example_res.results.map(n => `<div>${n.body}${n.answer}</div>`);
+    </script>
+    <div class="layout">
+      <h2></h2>
+      <p></p>
+    </div>
+  </body>
+</html>
