@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .layout {
+        padding: 3.2rem 4.8rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Assignment</h1>
+    <p class="layout" id="first-page"></p>
+    <h1>Instructions</h1>
+    <p class="layout" id="instruction"></p>
+    <p class="download" id="instruction_download"></p>
+    <h1>Instructor example</h1>
+    <p class="layout" id="solution"></p>
+    <p id="soulution_download"></p>
+    <script>
+      classInfo = {"first_res":{"_class":"practice","id":1413440,"is_free":false,"description":"Imagine a banking application. Create an Asp.Net Core Web Application that serves bank account details based on the request path.","estimated_duration":10,"num_submissions":569},"instruction_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_component","id":398506,"body":"<p><strong>Requirement:</strong> Imagine a banking application. Create an Asp.Net Core Web Application that serves bank account details based on the request path.</p><p><br></p><p>Consider the following hard-coded bank account details:</p><p><code> accountNumber = 1001, accountHolderName = \"Example Name\", currentBalance = 5000</code></p><p>You can store these details as an anonymous object. Eg: <code>new { property1 = value, property2 = value }</code></p><p><br></p><p><br></p><p><br></p><p><strong>Example #1:</strong></p><p>If you receive a HTTP GET request at path \"/\" (default route), it has to return welcome message with status code HTTP 200.</p><p>Request Url: /</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p> <code>Welcome to the Best Bank</code></p><p><br></p><p><br></p><p><strong>Example #2:</strong></p><p>If you receive a HTTP GET request at path \"/account-details\", it has to return all the details of bank account as Json format as response with status code HTTP 200.</p><p>Request Url: /account-details</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><pre class=\"prettyprint linenums\"> {\n&nbsp; &nbsp; \"accountNumber\": 1001,\n&nbsp; &nbsp; \"accountHolderName\": \"Example Name\",\n&nbsp; &nbsp; \"currentBalance\": 5000\n }</pre><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2022-10-26_19-54-22-155ece174ce805f5092cf57ed0e5f941.png\"></figure><p><br></p><p><strong>Example #3:</strong></p><p>If you receive a HTTP GET request at path \"/account-statement\", it has to return a dummy PDF file (assumed as bank statement) as response with status code HTTP 200.</p><p>Request Url: /account-statement</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p> <code>[some dummy PDF file]</code></p><p><br></p><p><br></p><p><strong>Example #4:</strong></p><p>If you receive a HTTP GET request at path \"/get-current-balance/{accountNumber}\", it has to return the corresponding current balance value as response with status code HTTP 200.</p><p>The \"accountNumber\" should be an int value and should be equal to \"1001\".</p><p>Request Url: /get-current-balance/1001</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p> 5000</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2022-10-26_19-54-23-ae17e776265e1841ab4b9bea302a4f03.png\"></figure><p><br></p><p><strong>Example #5:</strong></p><p>If you receive a HTTP GET request at path \"/get-current-balance/\", if the \"accountNumber\" is not supplied, it should return HTTP 404 response.</p><p>Request Url: /get-current-balance</p><p>Request Method: GET</p><p>Response Status Code: 404</p><p>Response body (output): </p><p> <code>Account Number should be supplied</code></p><p><br></p><p><br></p><p><strong>Example #6:</strong></p><p>If you receive a HTTP GET request at path \"/get-current-balance/{accountNumber}\", if the \"accountNumber\" is not equal to '1001', it should return HTTP 400 response.</p><p>Request Url: /get-current-balance/10</p><p>Request Method: GET</p><p>Response Status Code: 400</p><p>Response body (output): </p><p> <code>Account Number should be 1001</code></p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2022-10-26_19-54-23-8f0d2b1ae5d6d40c9f363c435159214d.png\"></figure><p><br></p><p><strong>Route Constraints:</strong></p><p>The \"accountNumber\" parameter should be an int value</p><p><br></p><p><strong>Instructions:</strong></p><ul><li><p>Create controller(s) with attribute routing.</p></li><li><p>Use essential route parameters and route constraints.</p></li><li><p>Use parameter validation when necessary.</p></li><li><p>Return ContentResult, JsonResult, FileResult and other status code results when necessary.</p></li><li><p>Return the appropriate HTTP response status code, based on above examples.</p></li></ul><p><br></p>","asset":null,"display_type":"text"}]},"solution_res":{"count":0,"next":null,"previous":null,"results":[]},"instructor_example_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_question","id":502708,"body":"<p>Check your source code with Instructor's source code.</p>","answer":"<p>Full source code at <a href=\"https://github.com/Harsha-Global/AspNetCore-Harsha/tree/main/Assignment%20Solutions/04.%20Section%206%20-%20Controllers%20-%20Bank%20app%20using%20Controllers\" rel=\"noopener noreferrer\" target=\"_blank\">Github</a></p>"}]}};
+      let instruction_download = classInfo.instruction_res.results.filter(n => n.display_type === 'download');
+      let instruction_text = classInfo.instruction_res.results.filter(n => n.display_type === 'text');
+      let solution_download = classInfo.solution_res.results.filter(n => n.display_type === 'download');
+      console.log(instruction_download);
+      document.querySelector('#first-page').innerHTML = classInfo.first_res.description;
+      if (instruction_download.length > 0)
+        document.querySelector('#instruction_download').innerHTML = `${instruction_download.map(n => `<p>Assignment-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#instruction').innerHTML = instruction_text[0].body;
+      if (solution_download.length > 0)
+        document.querySelector('#soulution_download').innerHTML = `${solution_download.map(n => `<p>Soulution-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#solution').innerHTML = classInfo.instructor_example_res.results.map(n => `<div>${n.body}${n.answer}</div>`);
+    </script>
+    <div class="layout">
+      <h2></h2>
+      <p></p>
+    </div>
+  </body>
+</html>
