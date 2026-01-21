@@ -3,11 +3,12 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Index([Bind(nameof(Order.OrderDate), nameof(Order.InvoicePrice), nameof(Order.Products))] Order order)
+        public IActionResult Index([FromForm][Bind(nameof(Order.OrderDate), nameof(Order.InvoicePrice), nameof(Order.Products))] Order order)
         {
             if (ModelState.IsValid)
             {
