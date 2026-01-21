@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .layout {
+        padding: 3.2rem 4.8rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Assignment</h1>
+    <p class="layout" id="first-page"></p>
+    <h1>Instructions</h1>
+    <p class="layout" id="instruction"></p>
+    <p class="download" id="instruction_download"></p>
+    <h1>Instructor example</h1>
+    <p class="layout" id="solution"></p>
+    <p id="soulution_download"></p>
+    <script>
+      classInfo = {"first_res":{"_class":"practice","id":1441486,"is_free":false,"description":"Imagine an e-Commerce application. Create an Asp.Net Core Web Application that receives orders from the customers.","estimated_duration":20,"num_submissions":324},"instruction_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_component","id":425520,"body":"<p><strong>Requirement: </strong></p><p>Imagine an e-Commerce application. Create an Asp.Net Core Web Application that receives orders from the customers.</p><p><br></p><p>An order contains order date, list of products (each product has product code number, price per one unit and quantity) and invoice price (the total cost of all products&nbsp; in the order).</p><p>If no validation errors, the application should generate a new order number (random number between 1 and 99999) and sent it as response.</p><p><br></p><p>Consider a model class called '<strong>Order</strong>' with following properties:</p><ul><li><p> int? OrderNo</p></li><li><p> DateTime OrderDate</p></li><li><p> double InvoicePrice</p></li><li><p> List&lt;Product&gt; Products</p></li></ul><p><br></p><p>Consider a model class called '<strong>Product</strong>' with following properties:</p><ul><li><p> int ProductCode</p></li><li><p> double Price</p></li><li><p> int Quantity</p></li></ul><p><br></p><p><br></p><p><strong>Example #1:</strong></p><p>If you receive a HTTP POST request at path \"/order\", it has to generate a new order number (random number) and return the same with status code HTTP 200.</p><p>Request Url: /order</p><p>Request Method: POST</p><p>Request Body (as form-data or x-www-form-urlencoded): <code>OrderDate=2025-12-31T22:00:00&amp;InvoicePrice=160&amp;Products[0].ProductCode=1&amp;Products[0].Price=15&amp;Products[0].Quantity=10&amp;Products[1].ProductCode=2&amp;Products[1].Price=2&amp;Products[1].Quantity=5</code></p><p>Response Status Code: 200</p><p>Response body (output): </p><p> New Order Number: [some random number]</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-20_15-45-41-0a4941f5a94cb32da3ecd5e940a09104.png\"></figure><p><br></p><p><strong>Example #2:</strong></p><p>If you receive a HTTP POST request at path \"/order\", if any validation errors (as mentioned below), it should return error message(s) with status code HTTP 400.</p><p>Request Url: /order</p><p>Request Method: POST</p><p>Request Body (as form-data or x-www-form-urlencoded): OrderDate=2025-12-31T22:00:00&amp;InvoicePrice=170&amp;Products[0].ProductCode=1&amp;Products[0].Price=15&amp;Products[0].Quantity=10&amp;Products[1].ProductCode=2&amp;Products[1].Price=2&amp;Products[1].Quantity=5</p><p>Response Status Code: 400</p><p>Response body (output): </p><p> <code>InvoicePrice doesn't match with the total cost of the specified products in the order.</code></p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-20_15-45-41-a5c81b750dd70448cdc15f4c06bcd560.png\"></figure><p><br></p><p><strong>Example #3:</strong></p><p>If you receive a HTTP POST request at path \"/order\", if any validation errors (as mentioned below), it should return error message(s) with status code HTTP 400.</p><p>Request Url: /order</p><p>Request Method: POST</p><p>Request Body (as form-data or x-www-form-urlencoded): <code>InvoicePrice=160&amp;Products[0].ProductCode=1&amp;Products[0].Price=15&amp;Products[0].Quantity=10&amp;Products[1].ProductCode=2&amp;Products[1].Price=2&amp;Products[1].Quantity=5</code></p><p>Response Status Code: 400</p><p>Response body (output): </p><p> <code>OrderDate can't be blank</code></p><p><br></p><p><br></p><p><strong>Validations:</strong></p><ul><li><p>All the properties of all model classes are mandatory. If any one of the values are not supplied, it should return appropriate custom error message in the response body with HTTP 400 status code.</p></li><li><p>An order can have unlimited number of products; and minimum of one product.</p></li><li><p>The InvoicePrice of Order model class, should match with the total cost of all products (Price * Quantity). Eg: Price is 15; Quantity is 10; so total cost of this product is 15 * 10 = 150. If there is another product, say for example, Price is 2; Quantity is 5; so total cost of this product is 2 * 5 = 10. So the total cost of both products is 150 + 10 = 160. This \"160\" should be InvoicePrice.</p></li><li><p>Obviously the InvoicePrice, ProductCode, Price, Quantity should be a valid number; and OrderDate should be a valid date&amp;time value.</p></li><li><p>The OrderNo will not be submitted by the customer (user); it should be generated by the system (if model state is valid - no validation errors); and should be sent to browser as response.</p></li></ul><p><br></p><p><br></p><p><strong>Instructions:</strong></p><ul><li><p>Create controller(s) with attribute routing.</p></li><li><p>Apply data annotations on model properties to impose validation rules.</p></li><li><p>Receive an object of 'Order' model class as parameter in the action method.</p></li><li><p>Return JsonResult (that includes newly generated order number) with HTTP 200 status code, if no validation errors.</p></li><li><p>Return ContentResult (with appropriate error messages) with HTTP 400 status code, in case of validation error(s).</p></li><li><p>Use the built-in model binding (not custom model binding), as the scenario doesn't require specific custom model binding.</p></li><li><p>The request body can be submitted as \"multipart/form-data\" or \"x-www-form-urlencoded\".</p></li><li><p>Order date should be greater than or equal to 2000-01-01.</p></li><li><p>Based on the need, you can add custom validation by using ValidatationAttribute class.</p></li><li><p>You can submit multiple products into \"Products\" property of \"Order class\", using collection binding technique. Eg: <code>Products[0].ProductCode=10&amp;Products[0].Price=20&amp;Products[0].Quantity=30&amp;Products[1].ProductCode=40&amp;Products[1].Price=50&amp;Products[1].Quantity=60</code></p></li><li><p>You need to use [Bind] attribute while receiving \"Order\" object through model binding, to avoid binding value into \"OrderNo\" property of \"Order\" class. Because, the order number should not be submitted by the user by any chance. It should be system-generated if no validation errors.</p></li></ul><p><br></p>","asset":null,"display_type":"text"}]},"solution_res":{"count":0,"next":null,"previous":null,"results":[]},"instructor_example_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_question","id":534806,"body":"<p>Check your source code with Instructor's source code.</p>","answer":"<p>Full source code at <a href=\"https://github.com/Harsha-Global/AspNetCore-Harsha/tree/main/Assignment%20Solutions/05.%20Section%207%20-%20Model%20Binding%20and%20Validations%20-%20Orders%20app\" rel=\"noopener noreferrer\" target=\"_blank\">Github</a></p>"}]}};
+      let instruction_download = classInfo.instruction_res.results.filter(n => n.display_type === 'download');
+      let instruction_text = classInfo.instruction_res.results.filter(n => n.display_type === 'text');
+      let solution_download = classInfo.solution_res.results.filter(n => n.display_type === 'download');
+      console.log(instruction_download);
+      document.querySelector('#first-page').innerHTML = classInfo.first_res.description;
+      if (instruction_download.length > 0)
+        document.querySelector('#instruction_download').innerHTML = `${instruction_download.map(n => `<p>Assignment-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#instruction').innerHTML = instruction_text[0].body;
+      if (solution_download.length > 0)
+        document.querySelector('#soulution_download').innerHTML = `${solution_download.map(n => `<p>Soulution-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#solution').innerHTML = classInfo.instructor_example_res.results.map(n => `<div>${n.body}${n.answer}</div>`);
+    </script>
+    <div class="layout">
+      <h2></h2>
+      <p></p>
+    </div>
+  </body>
+</html>
