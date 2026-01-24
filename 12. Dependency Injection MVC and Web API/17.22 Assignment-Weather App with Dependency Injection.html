@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .layout {
+        padding: 3.2rem 4.8rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Assignment</h1>
+    <p class="layout" id="first-page"></p>
+    <h1>Instructions</h1>
+    <p class="layout" id="instruction"></p>
+    <p class="download" id="instruction_download"></p>
+    <h1>Instructor example</h1>
+    <p class="layout" id="solution"></p>
+    <p id="soulution_download"></p>
+    <script>
+      classInfo = {"first_res":{"_class":"practice","id":1441474,"is_free":false,"description":"Imagine a weather application that shows weather details of the selected city. Create an Asp.Net Core Web Application that fulfils this requirement.","estimated_duration":20,"num_submissions":176},"instruction_res":{"count":2,"next":null,"previous":null,"results":[{"_class":"practice_component","id":425498,"body":"","asset":{"_class":"asset","id":46800528,"asset_type":"File","title":"StyleSheet.css","created":"2023-02-13T14:41:36Z","status":1,"captions":[],"body":"","external_url":"","is_external":false,"filename":"StyleSheet.css","media_license_token":null,"media_sources":[],"course_is_drmed":false,"download_urls":{"File":[{"label":"download","file":"https://att-c.udemycdn.com/2023-02-13_14-41-36-b80949e1aa1f4e9463bcc6f066fbb9c5/original.css?response-content-disposition=attachment%3B+filename%3DStyleSheet.css&Expires=1755961300&Signature=ODvmN9f-PYOtYRPC8WY~Zzxy4a1-Bbi43HMQb8TyA5qpbUCj8ZbGE3iz8dz37PQpgMl4mk97y03srXVwJKnNZMNS5gtVMK8ue3F9pIt-l2AuvGULH6pEjMDjyf3X2OYiFUehRaBsL4imuHjca6A9WCSUoQpxSE6rMP7fDHZEMUw20N~7qKXKpkz7dIjIBNs-reHwCCGF6FLqMIeZFuC2w3R~5x5iV-iXTRU37I70SY1d21w9sKcORzMZNISGgp3RQNSh~qyQCBOLXrsjqG-T~IDZk6IbCgkPTGyOsThrDl9nffk7Saaqw3gmPiNmfr2xqKC7gSJo-6s85xGslelMBA__&Key-Pair-Id=K3MG148K9RIRF4"}]},"slide_urls":[],"slides":[],"stream_urls":null,"processing_errors":[]},"display_type":"download"},{"_class":"practice_component","id":425502,"body":"<p>In this assignment exercise, you will redevelop the previous assignment (Weather App) with Services and Dependency Injection.</p><p><br></p><p><strong>Requirement: </strong></p><p>Imagine a weather application that shows weather details of the selected city. Create an Asp.Net Core Web Application that fulfils this requirement.</p><p><br></p><p>Consider the following hard-coded weather data of 3 cities.</p><pre class=\"prettyprint linenums\">CityUniqueCode = \"LDN\", CityName = \"London\", DateAndTime = \"2030-01-01 8:00\",  TemperatureFahrenheit = 33\nCityUniqueCode = \"NYC\", CityName = \"London\", DateAndTime = \"2030-01-01 3:00\",  TemperatureFahrenheit = 60\nCityUniqueCode = \"PAR\", CityName = \"Paris\", DateAndTime = \"2030-01-01 9:00\",  TemperatureFahrenheit = 82</pre><p><br></p><p>Consider a model class called 'CityWeather' with following properties:</p><pre class=\"prettyprint linenums\"> string CityUniqueCode\n string CityName\n DateTime DateAndTime\n int TemperatureFahrenheit</pre><p><br></p><p><br></p><p><br></p><p><strong>Example #1:</strong></p><p>If you receive a HTTP GET request at path \"/\", it has to generate a view with weather details of all cities with HTTP status code 200.</p><p>Request Url: /</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p>View as shown below.</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-13_14-43-39-a4c71923002e0a65f9eff441d8a0ef20.png\"></figure><p><br></p><p><strong>Example #2:</strong></p><p>If you receive a HTTP GET request at path \"/weather/{cityCode}\", it has to generate a view with weather details of the selected city s with HTTP status code 200.</p><p>Request Url: /</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p>View as shown below.</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-13_14-43-40-e19768b17e1bed3aae78b4387efeb524.png\"></figure><p><br></p><p><strong>Instructions:</strong></p><ul><li><p>Create controller(s) with attribute routing.</p></li><li><p>Create a service called \"WeatherService\" that implements the following service contract (interface).</p></li></ul><pre class=\"prettyprint linenums\"> IWeatherService\n    - List&lt;CityWeather&gt; GetWeatherDetails() - Returns a list of CityWeather objects that contains weather details of cities\n    - CityWeather? GetWeatherByCityCode(string CityCode) - Returns an object of CityWeather based on the given city code</pre><p><br></p><ul><li><p>Inject the WeatherService into controller using constructor injection. Call the appropriate service methods in action methods, accordingly.</p></li><li><p>Initialize the hard-coded data as collection of model objects in the service.</p></li><li><p>Use strongly-typed views. Send model object(s) to view.</p></li><li><p>If you supply an invalid city code as route parameter, it should show a page with proper error message, instead of throwing an exception.</p></li><li><p>Use CSS styles, layout views, _ViewImports, _ViewStart, view components as per the necessity.</p></li><li><p>The UI should be consistent and modern. It should minimum look like as shown in the screenshot. Optionally, you can try enhancing it based on your thoughts.</p></li><li><p>You can create a view component that displays weather details of a single city; and invoke the same in \"Index\" view in foreach loop while reading city details.</p></li><li><p>Apply background color for each box, based on the following categories of temperature value. Write essential code in view component, to determine the apppriate css class to apply background color.</p></li></ul><pre class=\"prettyprint linenums\">  Fahrenheit is less than 44 = blue background color\n  Fahrenheit is between 44 and 74 = blue background color\n  Fahrenheit is greater than 74 = blue background color</pre><ul><li><p>The CSS file is provided as downlodable resource for applying essential styles. You can download and use it.</p></li></ul><p><br></p>","asset":null,"display_type":"text"}]},"solution_res":{"count":0,"next":null,"previous":null,"results":[]},"instructor_example_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_question","id":534796,"body":"<p>Check your source code with Instructor's source code.</p>","answer":"<p>Full source code at <a href=\"https://github.com/Harsha-Global/AspNetCore-Harsha/tree/main/Assignment%20Solutions/10.%20Section%2012%20-%20Dependency%20Injection%20-%20Weather%20App\" rel=\"noopener noreferrer\" target=\"_blank\">Github</a></p>"}]}};
+      let instruction_download = classInfo.instruction_res.results.filter(n => n.display_type === 'download');
+      let instruction_text = classInfo.instruction_res.results.filter(n => n.display_type === 'text');
+      let solution_download = classInfo.solution_res.results.filter(n => n.display_type === 'download');
+      console.log(instruction_download);
+      document.querySelector('#first-page').innerHTML = classInfo.first_res.description;
+      if (instruction_download.length > 0)
+        document.querySelector('#instruction_download').innerHTML = `${instruction_download.map(n => `<p>Assignment-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#instruction').innerHTML = instruction_text[0].body;
+      if (solution_download.length > 0)
+        document.querySelector('#soulution_download').innerHTML = `${solution_download.map(n => `<p>Soulution-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#solution').innerHTML = classInfo.instructor_example_res.results.map(n => `<div>${n.body}${n.answer}</div>`);
+    </script>
+    <div class="layout">
+      <h2></h2>
+      <p></p>
+    </div>
+  </body>
+</html>

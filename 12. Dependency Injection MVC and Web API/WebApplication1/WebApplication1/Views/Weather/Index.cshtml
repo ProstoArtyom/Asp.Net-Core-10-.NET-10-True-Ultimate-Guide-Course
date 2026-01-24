@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WeatherData>
+@{
+    ViewBag.Title = "Weather";
+}
+
+<div class="margin-top-200 margin-left">
+    <div class="flex">
+        @foreach (var weatherData in Model)
+        {
+            @await Component.InvokeAsync("WeatherData", new { weatherData = weatherData })
+        }
+    </div>
+</div>
