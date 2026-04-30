@@ -1,0 +1,20 @@
+﻿@{
+	ViewBag.Title = "Home";
+}
+
+<div class="flex">
+	<div>
+		<a href="@ViewBag.SocialMediaLinksOptions.Facebook">@nameof(ViewBag.SocialMediaLinksOptions.Facebook)</a>
+	</div>
+	<environment exclude="Development">
+	<div>
+		<a href="@ViewBag.SocialMediaLinksOptions.Instagram">@nameof(ViewBag.SocialMediaLinksOptions.Instagram)</a>
+	</div>
+	</environment>
+	<div>
+		<a href="@ViewBag.SocialMediaLinksOptions.Twitter">@nameof(ViewBag.SocialMediaLinksOptions.Twitter)</a>
+	</div>
+	<div>
+		<a href="@ViewBag.SocialMediaLinksOptions.Youtube">@nameof(ViewBag.SocialMediaLinksOptions.Youtube)</a>
+	</div>
+</div>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="WebApplication2.Models/WebApplication2.Models.csproj" Id="80f6cdd7-4d2c-4b3c-8674-8cb03320ad49" />
+  <Project Path="WebApplication2.Services/WebApplication2.Services.csproj" Id="14fdeb61-8c02-478a-9d20-f14a4112015d" />
+  <Project Path="WebApplication2/WebApplication2.csproj" />
+</Solution>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .layout {
+        padding: 3.2rem 4.8rem;
+        word-break: break-word;
+        max-width: 86rem;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Assignment</h1>
+    <p class="layout" id="first-page"></p>
+    <h1>Instructions</h1>
+    <p class="layout" id="instruction"></p>
+    <p class="download" id="instruction_download"></p>
+    <h1>Instructor example</h1>
+    <p class="layout" id="solution"></p>
+    <p id="soulution_download"></p>
+    <script>
+      classInfo = {"first_res":{"_class":"practice","id":1441464,"is_free":false,"description":"Create an Asp.Net Core Web Application that demonstrates the usage of configuration in Asp.Net Core. It displays social media links based on the configuration settings stored in the config files.","estimated_duration":20,"num_submissions":165},"instruction_res":{"count":2,"next":null,"previous":null,"results":[{"_class":"practice_component","id":425496,"body":"","asset":{"_class":"asset","id":46800396,"asset_type":"File","title":"StyleSheet.css","created":"2023-02-13T14:36:45Z","status":1,"captions":[],"body":"","external_url":"","is_external":false,"filename":"StyleSheet.css","media_license_token":null,"media_sources":[],"course_is_drmed":false,"download_urls":{"File":[{"label":"download","file":"https://att-c.udemycdn.com/2023-02-13_14-36-45-685c0d54005370bd0f5ead8f31aca6cf/original.css?response-content-disposition=attachment%3B+filename%3DStyleSheet.css&Expires=1755961305&Signature=8VKGp2wpyTIwz39F~d-ZjFU~VexmwAOxLBUlVCGISkbkHuoatYE1VAMiJbmLqn0SiwiDrhSxtPQhcU3mJ8lCWkv8QFzeuNfrj5Xg4OsLE7bPSdeg~xj~3iqKO76OZFM8VGUVaE1SVsj94Ux9FuHNKgDNFzE7UdV~cnmH3YZ~Dw52DimkET0FT8-iesxfXe7qhyfjHX4xCfLWc~uY3YDidJZpknvZ6AEFL3Rpm2rKf9aqycHZ539du47EIWfQFA2sXHDm~mLkoe8qW8oWnGpPxk5gVwQrEeG491cp9mBM9PmPzbkWqEOQijprl8zzJKo2CUubMzBzBuNzBTuwVc-sUg__&Key-Pair-Id=K3MG148K9RIRF4"}]},"slide_urls":[],"slides":[],"stream_urls":null,"processing_errors":[]},"display_type":"download"},{"_class":"practice_component","id":425494,"body":"<p><strong>Requirement:</strong> </p><p>Create an Asp.Net Core Web Application that demonstrates the usage of configuration in Asp.Net Core. It displays social media links based on the configuration settings stored in the config files.</p><p><br></p><p>You will store the following configuration in <strong>appsettings.json</strong>:</p><pre class=\"prettyprint linenums\">  \"SocialMediaLinks\":\n  {\n    \"Facebook\": \"http://www.facebook.com/microsoft\",\n    \"Instagram\": \"http://www.instagram.com/microsoft\",\n    \"Twitter\": \"http://www.twitter.com/microsoft\",\n    \"Youtube\": \"http://www.youtube.com/microsoft\"\n  }</pre><p><br></p><p>You have different links for \"Development\" environment. So you will store the following social media links in appsettings.Development.json:</p><pre class=\"prettyprint linenums\">  \"SocialMediaLinks\":\n  {\n    \"Facebook\": \"http://www.facebook.com/dotnet\",\n    \"Twitter\": \"http://www.twitter.com/dotnet\",\n    \"Youtube\": \"http://www.youtube.com/dotnet\"\n  }</pre><p><br></p><p>Notice, there is no instagram link for Development environment.</p><p>So you'll not display instagram link in case of Development environment.</p><p><br></p><p>Consider a options model class called '<strong>SocialMediaLinksOptions</strong>' with following properties:</p><pre class=\"prettyprint linenums\"> string? Facebook\n string? Instagram\n string? Twitter\n string? Youtube</pre><p><br></p><p><br></p><p><br></p><p><strong>Example #1:</strong></p><p>In case of any other environment - other than \"Development\", if you receive a HTTP GET request at path \"/\", it has to generate a view with following social media links with HTTP status code 200.</p><p>Request Url: /</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p>View as shown below.</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-13_14-36-21-37a6f22f4b9c77ba9404b7dfab321b9b.png\"></figure><p><br></p><p><strong>Example #2:</strong></p><p>In case of \"Development\" environment, if you receive a HTTP GET request at path \"/\", it has to generate a view with following social media links with HTTP status code 200.</p><p>Request Url: /</p><p>Request Method: GET</p><p>Response Status Code: 200</p><p>Response body (output): </p><p>View as shown below.</p><figure><img src=\"https://img-c.udemycdn.com/redactor/raw/assignment/2023-02-13_14-36-21-ddd8712f83fca52cc26aa6e775a1ed56.png\"></figure><p><br></p><p><strong>Instructions:</strong></p><ul><li><p>Create controller(s) with attribute routing.</p></li><li><p>Provide the configuration as service, using Options pattern.</p></li><li><p>Inject the IOptions in the controller and supply social media links to the view via ViewBag.</p></li><li><p>Use CSS styles, layout views, _ViewImports, _ViewStart as per the necessity.</p></li><li><p>You need to hide the Instagram link in case of \"Development\" environment, using <code>&lt;environment&gt;</code> tag helper.</p></li><li><p>The social media links (in href atribute of <code>&lt;a&gt;</code> tag) should be as provided in the corresponding configuration (json) mentioned above at the top.</p></li><li><p>The CSS file is provided as downlodable resource for applying essential styles. You can download and use it.</p></li></ul><p><br></p>","asset":null,"display_type":"text"}]},"solution_res":{"count":0,"next":null,"previous":null,"results":[]},"instructor_example_res":{"count":1,"next":null,"previous":null,"results":[{"_class":"practice_question","id":534790,"body":"<p>Check your source code with Instructor's source code.</p>","answer":"<p>Full source code at <a href=\"https://github.com/Harsha-Global/AspNetCore-Harsha/tree/main/Assignment%20Solutions/11.%20Section%2014%20-%20Configuration%20-%20Social%20Media%20Links\" rel=\"noopener noreferrer\" target=\"_blank\">Github</a></p>"}]}};
+      let instruction_download = classInfo.instruction_res.results.filter(n => n.display_type === 'download');
+      let instruction_text = classInfo.instruction_res.results.filter(n => n.display_type === 'text');
+      let solution_download = classInfo.solution_res.results.filter(n => n.display_type === 'download');
+      console.log(instruction_download);
+      document.querySelector('#first-page').innerHTML = classInfo.first_res.description;
+      if (instruction_download.length > 0)
+        document.querySelector('#instruction_download').innerHTML = `${instruction_download.map(n => `<p>Assignment-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#instruction').innerHTML = instruction_text[0].body;
+      if (solution_download.length > 0)
+        document.querySelector('#soulution_download').innerHTML = `${solution_download.map(n => `<p>Soulution-${n.asset.title}</p>`).join()}`;
+      document.querySelector('#solution').innerHTML = classInfo.instructor_example_res.results.map(n => `<div>${n.body}${n.answer}</div>`);
+    </script>
+    <div class="layout">
+      <h2></h2>
+      <p></p>
+    </div>
+  </body>
+</html>
