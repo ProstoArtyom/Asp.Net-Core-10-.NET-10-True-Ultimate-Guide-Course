@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8ea11013-3955-4e39-ba79-90f79caf5695</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication1.ServiceContracts\WebApplication1.ServiceContracts.csproj" />
+    <ProjectReference Include="..\WebApplication1.Services\WebApplication1.Services.csproj" />
+  </ItemGroup>
+
+</Project>
