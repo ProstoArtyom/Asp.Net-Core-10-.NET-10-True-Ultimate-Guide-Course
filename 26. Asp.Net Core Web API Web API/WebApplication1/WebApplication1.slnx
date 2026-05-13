@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="WebApplication1.Contracts/WebApplication1.Contracts.csproj" />
+  <Project Path="WebApplication1.DataAccess/WebApplication1.DataAccess.csproj" />
+  <Project Path="WebApplication1.Entities/WebApplication1.Entities.csproj" />
+  <Project Path="WebApplication1.WebAPI/WebApplication1.WebAPI.csproj" />
+</Solution>
