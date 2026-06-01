@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="WebApplication1.DataAccess/WebApplication1.DataAccess.csproj" />
+  <Project Path="WebApplication1.Entities/WebApplication1.Entities.csproj" />
+  <Project Path="WebApplication1.Repositories/WebApplication1.Repositories.csproj" Id="22b2fa7d-a5d7-4ab5-ae2a-a416e18965cd" />
+  <Project Path="WebApplication1.RepositoryContracts/WebApplication1.RepositoryContracts.csproj" Id="6e0ebcd6-1a62-47d2-abc2-cd6b4b253148" />
+  <Project Path="WebApplication1.ServiceContracts/WebApplication1.ServiceContracts.csproj" />
+  <Project Path="WebApplication1.Services/WebApplication1.Services.csproj" />
+  <Project Path="WebApplication1.Tests/WebApplication1.Tests.csproj" />
+  <Project Path="WebApplication1/WebApplication1.csproj" />
+</Solution>
